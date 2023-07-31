@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: dataflow
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  description: Spring Cloud Data Flow Project
+  destinations:
+    - name: in-cluster
+      namespace: '*'
+      server: https://kubernetes.default.svc
+  orphanedResources: {}
+  sourceRepos:
+    - registry-1.docker.io/bitnamicharts/spring-cloud-dataflow
+status: {}

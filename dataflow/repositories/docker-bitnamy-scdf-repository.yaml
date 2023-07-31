@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: docker-bitnami-scdf
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: "helm"
+  url: "registry-1.docker.io/bitnamicharts/spring-cloud-dataflow"
+  enableOCI: "true"
