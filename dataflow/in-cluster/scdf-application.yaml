@@ -21,8 +21,8 @@ spec:
 
   # Source of the application manifests
   source:
-    chart: spring-cloud-dataflow
-    repoURL: registry-1.docker.io/bitnamicharts  # Can point to either a Helm chart repo or a git repo.
+    chart: bitnamicharts/spring-cloud-dataflow
+    repoURL: registry-1.docker.io  # Can point to either a Helm chart repo or a git repo.
     targetRevision: 2.10.3  # For Helm, this refers to the chart version.
 #    path:  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
     helm:
