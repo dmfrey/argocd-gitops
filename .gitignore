@@ -43,3 +43,5 @@ out/
 
 ### VS Code ###
 .vscode/
+
+/dataflow/repositories/docker-repository-credentials.yaml
