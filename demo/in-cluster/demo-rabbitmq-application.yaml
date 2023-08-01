@@ -21,9 +21,14 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: https://github.com/dmfrey/demo-parent-gitops.git  # Can point to either a Helm chart repo or a git repo.
-    targetRevision: main  # For Helm, this refers to the chart version.
-    path:  argocd/demo-ns-overlays/infrastructure/apps # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+    chart: bitnamicharts/rabbitmq
+    repoURL: registry-1.docker.io  # Can point to either a Helm chart repo or a git repo.
+    targetRevision: 12.0.9  # For Helm, this refers to the chart version.
+#    path:  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+    helm:
+      releaseName: rabbitmq
+      values: |
+        dbnameOverride: demo-rabbitmq-demo
 
   # Destination cluster and namespace to deploy the application
   destination:
