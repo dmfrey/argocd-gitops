@@ -14,5 +14,6 @@ spec:
       server: https://kubernetes.default.svc
   orphanedResources: {}
   sourceRepos:
+    - registry-1.docker.io
     - https://github.com/dmfrey/demo-parent-gitops.git
 status: {}
