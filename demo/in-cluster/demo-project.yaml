@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: demo
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  description: Demo Project
+  destinations:
+    - name: in-cluster
+      namespace: '*'
+      server: https://kubernetes.default.svc
+  orphanedResources: {}
+  sourceRepos:
+    - https://github.com/dmfrey/demo-parent-gitops.git
+status: {}
