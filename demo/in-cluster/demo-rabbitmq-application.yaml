@@ -28,7 +28,7 @@ spec:
     helm:
       releaseName: rabbitmq
       values: |
-        nameOverride: demo-rabbitmq-demo
+        fullnameOverride: demo-rabbitmq-demo
 
   # Destination cluster and namespace to deploy the application
   destination:
