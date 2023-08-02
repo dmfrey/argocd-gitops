@@ -29,7 +29,10 @@ spec:
       releaseName: postgresql
       values: |
         fullnameOverride: schema-registry-db
-        serviceBindings.enabled: true
+        serviceBindings:
+          enabled: true
+        metrics:
+          enabled: true
 
   # Destination cluster and namespace to deploy the application
   destination:
