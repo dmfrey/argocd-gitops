@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: demo-schema-registry
+  name: demo-schema-registry-db
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argocd
   # Add this finalizer ONLY if you want these to cascade delete.
@@ -10,10 +10,10 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
   # Add labels to your application object.
   labels:
-    app.kubernetes.io/component: schema-registry
+    app.kubernetes.io/component: postgres
     app.kubernetes.io/part-of: demo
-    app.kubernetes.io/name: demo-schema-registry
-    app.kubernetes.io/instance: demo-schema-registry
+    app.kubernetes.io/name: demo-schema-registry-db
+    app.kubernetes.io/instance: demo-schema-registry-db
 
 spec:
   # The project the application belongs to.
@@ -21,12 +21,15 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: https://github.com/dmfrey/demo-parent-gitops.git  # Can point to either a Helm chart repo or a git repo.
-    targetRevision: main  # For Helm, this refers to the chart version.
-    path: charts/schema-registry # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+    chart: bitnamicharts/postgresql
+    repoURL: registry-1.docker.io  # Can point to either a Helm chart repo or a git repo.
+    targetRevision: 12.8.0  # For Helm, this refers to the chart version.
+#    path:  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
     helm:
-      valueFiles:
-        -  values.yaml
+      releaseName: postgresql
+      values: |
+        fullnameOverride: schema-registry-db
+        serviceBindings.enabled: true
 
   # Destination cluster and namespace to deploy the application
   destination:
