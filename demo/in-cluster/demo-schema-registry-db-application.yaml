@@ -32,8 +32,9 @@ spec:
         serviceBindings:
           enabled: true
         auth:
-          database: schema-registry-db
-          password: password123
+          database: postgresql
+          secretKeys:
+            userPasswordKey: postgresql-password 
         metrics:
           enabled: true
           serviceMonitor:
