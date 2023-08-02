@@ -33,8 +33,7 @@ spec:
           enabled: true
         auth:
           database: postgresql
-          secretKeys:
-            userPasswordKey: postgresql-password 
+          usePasswordFiles: true 
         metrics:
           enabled: true
           serviceMonitor:
