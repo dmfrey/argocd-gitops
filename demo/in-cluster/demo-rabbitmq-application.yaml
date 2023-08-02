@@ -29,6 +29,8 @@ spec:
       releaseName: rabbitmq
       values: |
         fullnameOverride: demo-rabbitmq-demo
+        serviceBindings:
+          enabled: true
 
   # Destination cluster and namespace to deploy the application
   destination:
