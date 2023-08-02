@@ -31,8 +31,12 @@ spec:
         fullnameOverride: schema-registry-db
         serviceBindings:
           enabled: true
+        auth:
+          database: metrics
         metrics:
           enabled: true
+          serviceMonitor:
+            enabled: true
 
   # Destination cluster and namespace to deploy the application
   destination:
