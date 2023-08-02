@@ -32,7 +32,6 @@ spec:
         serviceBindings:
           enabled: true
         auth:
-          existingSecret: schema-registry-db
           database: postgresql
           secretKeys:
             userPasswordKey: postgresql-password 
