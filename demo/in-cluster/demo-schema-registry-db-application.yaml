@@ -32,7 +32,8 @@ spec:
         serviceBindings:
           enabled: true
         auth:
-          database: metrics
+          database: schema-registry-db
+          password: password123
         metrics:
           enabled: true
           serviceMonitor:
