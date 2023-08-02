@@ -33,6 +33,8 @@ spec:
           enabled: true
         auth:
           database: postgresql
+          username: schema-registry-db-user
+          password: schema-registry-db-pass
           usePasswordFiles: true 
         metrics:
           enabled: true
