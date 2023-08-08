@@ -28,6 +28,8 @@ spec:
     helm:
       releaseName: postgresql
       values: |
+        global:
+          storageClass: democratic-csi/democratic-csi
         fullnameOverride: schema-registry-db
         serviceBindings:
           enabled: true
