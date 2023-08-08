@@ -29,7 +29,7 @@ spec:
       releaseName: postgresql
       values: |
         global:
-          storageClass: demo-schema-registry-db
+          storageClass: zfs-generic-iscsi-csi
         fullnameOverride: schema-registry-db
         serviceBindings:
           enabled: true
