@@ -29,7 +29,7 @@ spec:
       releaseName: postgresql
       values: |
         global:
-          storageClass: democratic-csi/democratic-csi
+          storageClass: demo-schema-registry-db
         fullnameOverride: schema-registry-db
         serviceBindings:
           enabled: true
