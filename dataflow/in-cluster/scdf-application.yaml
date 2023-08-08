@@ -27,6 +27,15 @@ spec:
 #    path:  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
     helm:
       releaseName: spring-cloud-dataflow
+    values: |
+      global:
+        storageClass: nfs-csi
+      rabbitmq:
+        volumePermissions:
+          enabled: true
+        persistence:
+          storageClass: nfs-csi
+
 
   # Destination cluster and namespace to deploy the application
   destination:
