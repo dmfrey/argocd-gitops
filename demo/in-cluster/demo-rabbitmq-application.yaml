@@ -31,6 +31,8 @@ spec:
         fullnameOverride: demo-rabbitmq-demo
         serviceBindings:
           enabled: true
+        persistence:
+          storageClass: nfs-csi
 
   # Destination cluster and namespace to deploy the application
   destination:
@@ -51,6 +53,7 @@ spec:
       - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
       - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
       - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+      - ApplyOutOfSyncOnly=true
 
     # The retry feature is available since v1.7
     retry:
